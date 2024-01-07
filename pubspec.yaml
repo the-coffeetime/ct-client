@@ -1,0 +1,38 @@
+name: coffeetime
+description: 커피타임은 직무별로 다양한 이야기를 가볍게 나누는 공간입니다.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 0.0.1
+
+environment:
+  sdk: '>=3.1.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  device_preview: ^1.1.0
+  cupertino_icons: ^1.0.2 # iOS style fonts & icons
+  provider: ^6.0.5
+  flutter_syntax_view: ^4.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+# assets:
+
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700

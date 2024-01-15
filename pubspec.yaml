@@ -14,6 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.2 # iOS style fonts & icons
   provider: ^6.0.5
   flutter_syntax_view: ^4.0.0
+  flutter_native_splash: ^2.3.1
 
 dev_dependencies:
   flutter_test:

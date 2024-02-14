@@ -1,3 +1,4 @@
+# dart run flutter_launcher_icons
 flutter_icons:
   ios: true
   android: true

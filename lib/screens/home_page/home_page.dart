@@ -1,3 +1,6 @@
+import 'package:coffeetime/index.dart';
+import 'package:coffeetime/screens/access_page/index.dart';
+
 import 'index.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,6 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final ScrollController _scrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -16,16 +21,21 @@ class _HomePageState extends State<HomePage> {
           appBar: AppBar(
             title: Row(
               children: <Widget>[
-                Container(
-                  // Use MediaQuery to adjust the image size dynamically
-                  height: MediaQuery.of(context).size.height *
-                      0.04, // Adjust the size as a percentage of the screen height
-                  width: MediaQuery.of(context).size.width *
-                      0.09, // Ensure the image aspect ratio is maintained
-                  alignment: Alignment
-                      .topCenter, // Adjust the width as a percentage of the screen width
-                  child: Image.asset('assets/images/CT-letter-logo3.png',
-                      fit: BoxFit.contain),
+                GestureDetector(
+                  onTap: () {
+                    _scrollController.animateTo(0, duration: Duration(milliseconds: 400), curve: Curves.easeOut);
+                  },
+                  child: Container(
+                    // Use MediaQuery to adjust the image size dynamically
+                    height: MediaQuery.of(context).size.height *
+                        0.04, // Adjust the size as a percentage of the screen height
+                    width: MediaQuery.of(context).size.width *
+                        0.09, // Ensure the image aspect ratio is maintained
+                    alignment: Alignment
+                        .topCenter, // Adjust the width as a percentage of the screen width
+                    child: Image.asset('assets/images/CT-letter-logo3.png',
+                        fit: BoxFit.contain),
+                  ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -76,10 +86,10 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.normal), // Style for unselected tabs
             ),
           ),
-          body: const TabBarView(
+          body: TabBarView(
             children: [
               // Replace these with your actual widgets/pages
-              Center(child: Text('Home Page Content')),
+              HomeTab(scrollController: _scrollController),
               Center(child: Text('Favorites Content')),
             ],
           ),

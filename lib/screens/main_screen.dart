@@ -14,7 +14,7 @@ class _MainScreenState extends State<MainScreen> {
     const HomePage(),
     const BoardPage(),
     const ChatPage(),
-    const AlertPage(),
+    const NotificationPage(),
     const ProfilePage(),
   ];
 
@@ -27,9 +27,15 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: IndexedStack(
-          index: _selectedIndex,
-          children: _pages,
+        body: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 400), // Duration of the fade
+          transitionBuilder: (Widget child, Animation<double> animation) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+          child: _pages[_selectedIndex],
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
